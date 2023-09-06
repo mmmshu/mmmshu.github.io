@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33mason</title>
+    <link rel="stylesheet" href="css/t.css">
+    <link href="https://fonts.googlefonts.cn/css?family=Montserrat|Raleway" rel="stylesheet">
+</head>
+<body class="mx-auto bgcolor text-4xl px-16">
+    <a href="index.html">
+        <h2 class=" text-center text-white mt-36 my-16 font2">33mason</h2>
+    </a>
+
+    <div class="w-2/3 mx-auto text-center">
+
+        <h1 id="activityText2" class="text-white "></h1>
+        <h1 id="activityText" class="text-white mt-11"></h1>
+
+        
+
+    </div>
+    
+    <script>
+        countDown();
+        countDown2();
+        function countDown() {
+          function addZero(i) {
+            return i < 10 ? "0" + i : i;
+          }
+          let activityText = document.querySelector('#activityText');
+          let timer = null;
+          const startTime = new Date('2023-09-04 00:00:00');
+          const endTime = new Date('2023-09-04 09:50:50');
+          // 注：这里是直接使用用户本地系统时间做演示
+          const nowTime = new Date();
+          // 当前时间距离活动开始时间的差值
+          const beginDiff = parseInt((startTime.getTime() - nowTime.getTime()) / 1000);
+          //当前时间距离活动结束时间的差值
+          const endDiff = parseInt((endTime.getTime() - nowTime.getTime()) / 1000);
+          // 剩余时间
+          const leftTime = beginDiff > 0 ? beginDiff : endDiff;
+          let day = parseInt(leftTime / (24 * 60 * 60))
+          let hour = parseInt(leftTime / (60 * 60) % 24);
+          let minute = parseInt(leftTime / 60 % 60);
+          let second = parseInt(leftTime % 60);
+          day = addZero(day);
+          hour = addZero(hour);
+          minute = addZero(minute);
+          second = addZero(second);
+    
+          if (beginDiff > 0) {
+            activityText.innerText = `距 ${day}天 ${hour}时 ${minute}分 ${second}秒`;
+            timer = setTimeout(countDown, 1000);
+          } 
+           else {
+            activityText.innerText = `分开已经 ${day}天 ${hour}时 ${minute}分 ${second}秒`;
+            timer = setTimeout(countDown, 1000);
+          }
+        }
+        
+        function countDown2() {
+          function addZero(i) {
+            return i < 10 ? "0" + i : i;
+          }
+          let activityText2 = document.querySelector('#activityText2');
+          let timer2 = null;
+          const startTime = new Date('2023-09-04 00:00:00');
+          const endTime = new Date('2023-08-13 00:00:00');
+          // 注：这里是直接使用用户本地系统时间做演示
+          const nowTime = new Date();
+          // 当前时间距离活动开始时间的差值
+          const beginDiff = parseInt((startTime.getTime() - nowTime.getTime()) / 1000);
+          //当前时间距离活动结束时间的差值
+          const endDiff = parseInt((endTime.getTime() - nowTime.getTime()) / 1000);
+          // 剩余时间
+          const leftTime = beginDiff > 0 ? beginDiff : endDiff;
+          let day = parseInt(leftTime / (24 * 60 * 60))
+          let hour = parseInt(leftTime / (60 * 60) % 24);
+          let minute = parseInt(leftTime / 60 % 60);
+          let second = parseInt(leftTime % 60);
+          day = addZero(day);
+          hour = addZero(hour);
+          minute = addZero(minute);
+          second = addZero(second);
+    
+          if (beginDiff > 0) {
+            activityText2.innerText = `距 ${day}天 ${hour}时 ${minute}分 ${second}秒`;
+            timer2 = setTimeout(countDown2, 1000);
+          } 
+           else {
+            activityText2.innerText = `喜欢桑桑老婆已经 ${day}天 ${hour}时 ${minute}分 ${second}秒`;
+            timer2 = setTimeout(countDown2, 1000);
+          }
+        }
+        
+
+      </script>
+    
+</body>
+</html>
